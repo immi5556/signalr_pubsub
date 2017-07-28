@@ -1,0 +1,10 @@
+C:\Immi\Personal\MyProjects\signalr_pubsub\Immanuel.Pubsub\Test.Signalr.Client\obj\Debug\Test.Signalr.Client.csprojResolveAssemblyReference.cache
+C:\Immi\Personal\MyProjects\signalr_pubsub\Immanuel.Pubsub\Test.Signalr.Client\bin\Debug\Test.Signalr.Client.exe.config
+C:\Immi\Personal\MyProjects\signalr_pubsub\Immanuel.Pubsub\Test.Signalr.Client\bin\Debug\Test.Signalr.Client.exe
+C:\Immi\Personal\MyProjects\signalr_pubsub\Immanuel.Pubsub\Test.Signalr.Client\bin\Debug\Test.Signalr.Client.pdb
+C:\Immi\Personal\MyProjects\signalr_pubsub\Immanuel.Pubsub\Test.Signalr.Client\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+C:\Immi\Personal\MyProjects\signalr_pubsub\Immanuel.Pubsub\Test.Signalr.Client\bin\Debug\Newtonsoft.Json.dll
+C:\Immi\Personal\MyProjects\signalr_pubsub\Immanuel.Pubsub\Test.Signalr.Client\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
+C:\Immi\Personal\MyProjects\signalr_pubsub\Immanuel.Pubsub\Test.Signalr.Client\bin\Debug\Newtonsoft.Json.xml
+C:\Immi\Personal\MyProjects\signalr_pubsub\Immanuel.Pubsub\Test.Signalr.Client\obj\Debug\Test.Signalr.Client.exe
+C:\Immi\Personal\MyProjects\signalr_pubsub\Immanuel.Pubsub\Test.Signalr.Client\obj\Debug\Test.Signalr.Client.pdb
