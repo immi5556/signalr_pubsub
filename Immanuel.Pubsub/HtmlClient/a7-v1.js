@@ -2834,129 +2834,202 @@
 }(window.jQuery));
 
 
-$(function () {
-    //$.connection.groupHub.id
-    (function ($, window, undefined) {
-        /// <param name="$" type="jQuery" />
-        "use strict";
+/// a7
+(function ($, window, undefined) {
+    /// <param name="$" type="jQuery" />
+    "use strict";
 
-        if (typeof ($.signalR) !== "function") {
-            throw new Error("SignalR: SignalR is not loaded. Please ensure jquery.signalR-x.js is referenced before ~/signalr/js.");
-        }
+    if (typeof ($.signalR) !== "function") {
+        throw new Error("SignalR: SignalR is not loaded. Please ensure jquery.signalR-x.js is referenced before ~/signalr/js.");
+    }
 
-        var signalR = $.signalR;
+    var signalR = $.signalR;
 
-        function makeProxyCallback(hub, callback) {
-            return function () {
-                // Call the client hub method
-                callback.apply(hub, $.makeArray(arguments));
-            };
-        }
+    function makeProxyCallback(hub, callback) {
+        return function () {
+            // Call the client hub method
+            callback.apply(hub, $.makeArray(arguments));
+        };
+    }
 
-        function registerHubProxies(instance, shouldSubscribe) {
-            var key, hub, memberKey, memberValue, subscriptionMethod;
+    function registerHubProxies(instance, shouldSubscribe) {
+        var key, hub, memberKey, memberValue, subscriptionMethod;
 
-            for (key in instance) {
-                if (instance.hasOwnProperty(key)) {
-                    hub = instance[key];
+        for (key in instance) {
+            if (instance.hasOwnProperty(key)) {
+                hub = instance[key];
 
-                    if (!(hub.hubName)) {
-                        // Not a client hub
-                        continue;
-                    }
+                if (!(hub.hubName)) {
+                    // Not a client hub
+                    continue;
+                }
 
-                    if (shouldSubscribe) {
-                        // We want to subscribe to the hub events
-                        subscriptionMethod = hub.on;
-                    } else {
-                        // We want to unsubscribe from the hub events
-                        subscriptionMethod = hub.off;
-                    }
+                if (shouldSubscribe) {
+                    // We want to subscribe to the hub events
+                    subscriptionMethod = hub.on;
+                } else {
+                    // We want to unsubscribe from the hub events
+                    subscriptionMethod = hub.off;
+                }
 
-                    // Loop through all members on the hub and find client hub functions to subscribe/unsubscribe
-                    for (memberKey in hub.client) {
-                        if (hub.client.hasOwnProperty(memberKey)) {
-                            memberValue = hub.client[memberKey];
+                // Loop through all members on the hub and find client hub functions to subscribe/unsubscribe
+                for (memberKey in hub.client) {
+                    if (hub.client.hasOwnProperty(memberKey)) {
+                        memberValue = hub.client[memberKey];
 
-                            if (!$.isFunction(memberValue)) {
-                                // Not a client hub function
-                                continue;
-                            }
-
-                            subscriptionMethod.call(hub, memberKey, makeProxyCallback(hub, memberValue));
+                        if (!$.isFunction(memberValue)) {
+                            // Not a client hub function
+                            continue;
                         }
+
+                        subscriptionMethod.call(hub, memberKey, makeProxyCallback(hub, memberValue));
                     }
                 }
             }
         }
+    }
 
-        $.hubConnection.prototype.createHubProxies = function () {
-            var proxies = {};
-            this.starting(function () {
-                // Register the hub proxies as subscribed
-                // (instance, shouldSubscribe)
-                registerHubProxies(proxies, true);
+    $.hubConnection.prototype.createHubProxies = function () {
+        var proxies = {};
+        this.starting(function () {
+            // Register the hub proxies as subscribed
+            // (instance, shouldSubscribe)
+            registerHubProxies(proxies, true);
 
-                this._registerSubscribedHubs();
-            }).disconnected(function () {
-                // Unsubscribe all hub proxies when we "disconnect".  This is to ensure that we do not re-add functional call backs.
-                // (instance, shouldSubscribe)
-                registerHubProxies(proxies, false);
-            });
+            this._registerSubscribedHubs();
+        }).disconnected(function () {
+            // Unsubscribe all hub proxies when we "disconnect".  This is to ensure that we do not re-add functional call backs.
+            // (instance, shouldSubscribe)
+            registerHubProxies(proxies, false);
+        });
 
-            proxies['groupHub'] = this.createHubProxy('groupHub');
-            proxies['groupHub'].client = {};
-            proxies['groupHub'].server = {
-                sendToAll: function (msg) {
-                    return proxies['groupHub'].invoke.apply(proxies['groupHub'], $.merge(["SendToAll"], $.makeArray(arguments)));
-                },
-
-                sendToGroup: function (grp, msg) {
-                    return proxies['groupHub'].invoke.apply(proxies['groupHub'], $.merge(["SendToGroup"], $.makeArray(arguments)));
-                },
-
-                sendToSender: function (msg) {
-                    return proxies['groupHub'].invoke.apply(proxies['groupHub'], $.merge(["SendToSender"], $.makeArray(arguments)));
-                },
-
-                sendToUser: function (connectionid, msg) {
-                    return proxies['groupHub'].invoke.apply(proxies['groupHub'], $.merge(["SendToUser"], $.makeArray(arguments)));
-                }
-            };
-
-            return proxies;
+        proxies['GroupHub'] = this.createHubProxy('GroupHub');
+        proxies['GroupHub'].client = {};
+        proxies['GroupHub'].server = {
+            sendToGroup: function (grp, msg) {
+                return proxies['GroupHub'].invoke.apply(proxies['GroupHub'], $.merge(["SendToGroup"], $.makeArray(arguments)));
+            }
         };
 
-        signalR.hub = $.hubConnection("http://localhost:53684/signalr", { useDefaultPath: false });
-        $.extend(signalR, signalR.hub.createHubProxies());
+        proxies['SingleHub'] = this.createHubProxy('SingleHub');
+        proxies['SingleHub'].client = {};
+        proxies['SingleHub'].server = {
+            sendToUser: function (user, msg) {
+                return proxies['SingleHub'].invoke.apply(proxies['SingleHub'], $.merge(["SendToUser"], $.makeArray(arguments)));
+            }
+        };
 
-    }(window.jQuery, window));
-});
+        return proxies;
+    };
+
+    signalR.hub = $.hubConnection("http://socket.immanuel.co/signalr", { useDefaultPath: false });
+    $.extend(signalR, signalR.hub.createHubProxies());
+
+}(window.jQuery, window));
+
+var a7 = (function () {
+    var key = "hw88dnfi"
+    var AddUser = function (user) {
+        $.ajax({
+            type: "GET",
+            url: "http://socket.immanuel.co/api/" + key + "/user/" + user + "/add/" + $.connection.hub.id,
+            //url: "http://localhost:53684/api/" + key + "/user/" + user + "/add/" + $.connection.hub.id,
+            contentType: false,
+            processData: false
+        }).done(function (data) {
+
+        }).fail(function (err) {
+
+        });
+    }
+
+    var SendToUser = function (user, message) {
+        $.ajax({
+            type: "POST",
+            url: "http://socket.immanuel.co/api/" + key + "/user/" + user + "/send/" + message,
+            //url: "http://localhost:53684/api/" + key + "/user/" + user + "/send/" + message,
+            contentType: false,
+            processData: false
+        }).done(function (data) {
+
+        }).fail(function (err) {
+
+        });
+    }
+
+    var AddUserToGroup = function (user, group) {
+        $.ajax({
+            type: "POST",
+            url: "http://socket.immanuel.co/api/" + key + "/group/" + group + "/add/" + user + "/" + $.connection.hub.id,
+            contentType: false,
+            processData: false
+        }).done(function (data) {
+
+        }).fail(function (err) {
+
+        });
+    }
+
+    var SendToGroup = function (group, message) {
+        $.ajax({
+            type: "POST",
+            url: "http://socket.immanuel.co/api/" + key + "/group/" + group + "/send/" + message,
+            //url: "http://localhost:53684/api/" + key + "/group/" + group + "/send/" + message,
+            contentType: false,
+            processData: false
+        }).done(function (data) {
+
+        }).fail(function (err) {
+
+        });
+    }
+
+    return {
+        addUser: AddUser,
+        addUserToGroup: AddUserToGroup,
+        sendToUser: SendToUser,
+        sendToGroup: SendToGroup
+    }
+})();
 
 $(function () {
-    // Reference the auto-generated proxy for the hub.
-    var chat = $.connection.groupHub;
-    // Create a function that the hub can call back to display messages.
-    chat.client.send = function (message) {
-        // Add the message to the page.
-        $('#discussion').append('<li><strong>' + htmlEncode("Dummy Name")
-            + '</strong>: ' + htmlEncode(message) + '</li>');
-    };
-    // Get the user name and store it to prepend to messages.
-    //$('#displayname').val(prompt('Enter your name:', ''));
-    $('#displayname').val('Some User');
-    // Set initial focus to message input box.
-    $('#message').focus();
-    // Start the connection.
-    $.connection.hub.start().done(function () {
-        $('#sendmessage').click(function () {
-            // Call the Send method on the hub.
-            chat.server.sendToAll($('#message').val());
-            // Clear text box and reset focus for next comment.
-            $('#message').val('').focus();
+    $(function () {
+        var chat = $.connection.GroupHub;
+        var single = $.connection.SingleHub;
+        single.client.SendToUser = function (user, message) {
+            $('#discussion').append('<li><strong>' + htmlEncode("Usr Msg:")
+                + '</strong>: ' + htmlEncode(message) + '</li>');
+        };
+
+        chat.client.SendToGroup = function (grp, message) {
+            $('#discussion').append('<li><strong>' + htmlEncode("Group Msg: ")
+                + '</strong>: ' + htmlEncode(message) + '</li>');
+        };
+        $('#displayname').val('Some User');
+        $('#message').focus();
+        $.connection.hub.start().done(function () {
+            //$('#sendmessage').click(function () {
+            //    // Call the Send method on the hub.
+            //    chat.server.sendToGroup("group-1", $('#message').val());
+            //    // Clear text box and reset focus for next comment.
+            //    $('#message').val('').focus();
+            //});
+            console.log("connected..");
+            a7.addUser($("#user").val() || 'Test1');
+        });
+
+        $('#btnadduser').click(function () {
+            //a7.addUser($("#user").val());
+        });
+        $("#sendmessage").click(function () {
+            a7.sendToUser($("#user").val(), $('#message').val());
+            //$('#message').val('').focus();
+        });
+        $("#grpsnd").click(function () {
+            //a7.sendToGroup($("#grp").val(), $('#message').val());
         });
     });
-
+    // This optional function html-encodes messages for display in the page.
     function htmlEncode(value) {
         var encodedValue = $('<div />').text(value).html();
         return encodedValue;
