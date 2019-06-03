@@ -31,7 +31,7 @@
             var AddUser = function (user) {
                 $.ajax({
                     type: "GET",
-                    url: "http://socket.immanuel.co/api/" + key + "/user/" + user + "/add/" + $.connection.hub.id,
+                    url: "https://socket.immanuel.co/api/" + key + "/user/" + user + "/add/" + $.connection.hub.id,
                     //url: "http://localhost:53684/api/" + key + "/user/" + user + "/add/" + $.connection.hub.id,
                     contentType: false,
                     processData: false
@@ -45,7 +45,7 @@
             var SendToUser = function (user, message) {
                 $.ajax({
                     type: "POST",
-                    url: "http://socket.immanuel.co/api/" + key + "/user/" + user + "/send/" + message,
+                    url: "https://socket.immanuel.co/api/" + key + "/user/" + user + "/send/" + message,
                     //url: "http://localhost:53684/api/" + key + "/user/" + user + "/send/" + message,
                     contentType: false,
                     processData: false
@@ -59,7 +59,7 @@
             var AddUserToGroup = function (user, group) {
                 $.ajax({
                     type: "POST",
-                    url: "http://socket.immanuel.co/api/" + key + "/group/" + group + "/add/" + user + "/" + $.connection.hub.id,
+                    url: "https://socket.immanuel.co/api/" + key + "/group/" + group + "/add/" + user + "/" + $.connection.hub.id,
                     contentType: false,
                     processData: false
                 }).done(function (data) {
@@ -72,7 +72,7 @@
             var SendToGroup = function (group, message) {
                 $.ajax({
                     type: "POST",
-                    url: "http://socket.immanuel.co/api/" + key + "/group/" + group + "/send/" + message,
+                    url: "https://socket.immanuel.co/api/" + key + "/group/" + group + "/send/" + message,
                     //url: "http://localhost:53684/api/" + key + "/group/" + group + "/send/" + message,
                     contentType: false,
                     processData: false

@@ -1,0 +1,137 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <input type="text" id="message" value="sample msg" /> <br />
+    <input type="text" id="user" placeholder="User" value="Test1" />
+    <input type="button" id="btnadduser" value="Add User" />
+    <input type="button" id="sendmessage" value="Send" /><br />
+    <input type="text" id="grp" placeholder="Group" />
+    <input type="button" id="grpsnd" value="Send" />
+    <input type="hidden" id="displayname" />
+    <ul id="discussion"></ul>
+    <!--Script references. -->
+    <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
+    <!--Reference the SignalR library. -->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+
+    @*<script src="~/Scripts/jquery.signalR-2.1.2.js"></script>
+        <script src="~/signalr/hubs"></script>*@
+    <!--SignalR script to update the chat page and send messages.-->
+    <script src="~/Scripts/a7-sock.js"></script>
+    <script>
+
+        var a7 = (function () {
+            var key = "hw88dnfi"
+            var AddUser = function (user) {
+                $.ajax({
+                    type: "GET",
+                    url: "https://socket.immanuel.co/api/" + key + "/user/" + user + "/add/" + $.connection.hub.id,
+                    //url: "http://localhost:53684/api/" + key + "/user/" + user + "/add/" + $.connection.hub.id,
+                    contentType: false,
+                    processData: false
+                }).done(function (data) {
+
+                }).fail(function (err) {
+
+                });
+            }
+
+            var SendToUser = function (user, message) {
+                $.ajax({
+                    type: "POST",
+                    url: "https://socket.immanuel.co/api/" + key + "/user/" + user + "/send/" + message,
+                    //url: "http://localhost:53684/api/" + key + "/user/" + user + "/send/" + message,
+                    contentType: false,
+                    processData: false
+                }).done(function (data) {
+
+                }).fail(function (err) {
+
+                });
+            }
+
+            var AddUserToGroup = function (user, group) {
+                $.ajax({
+                    type: "POST",
+                    url: "https://socket.immanuel.co/api/" + key + "/group/" + group + "/add/" + user + "/" + $.connection.hub.id,
+                    contentType: false,
+                    processData: false
+                }).done(function (data) {
+
+                }).fail(function (err) {
+
+                });
+            }
+
+            var SendToGroup = function (group, message) {
+                $.ajax({
+                    type: "POST",
+                    url: "https://socket.immanuel.co/api/" + key + "/group/" + group + "/send/" + message,
+                    //url: "http://localhost:53684/api/" + key + "/group/" + group + "/send/" + message,
+                    contentType: false,
+                    processData: false
+                }).done(function (data) {
+
+                }).fail(function (err) {
+
+                });
+            }
+
+            return {
+                addUser: AddUser,
+                addUserToGroup: AddUserToGroup,
+                sendToUser: SendToUser,
+                sendToGroup: SendToGroup
+            }
+        })();
+
+        $(function() {
+            var chat = $.connection.GroupHub;
+            var single = $.connection.SingleHub;
+            single.client.SendToUser = function (user, message) {
+                $('#discussion').append('<li><strong>' + htmlEncode("Usr Msg:")
+                    + '</strong>: ' + htmlEncode(message) + '</li>');
+            };
+
+            chat.client.SendToGroup = function (grp, message) {
+                $('#discussion').append('<li><strong>' + htmlEncode("Group Msg: ")
+                    + '</strong>: ' + htmlEncode(message) + '</li>');
+            };
+            $('#displayname').val('Some User');
+            $('#message').focus();
+            $.connection.hub.start().done(function () {
+                //$('#sendmessage').click(function () {
+                //    // Call the Send method on the hub.
+                //    chat.server.sendToGroup("group-1", $('#message').val());
+                //    // Clear text box and reset focus for next comment.
+                //    $('#message').val('').focus();
+                //});
+                console.log("connected..");
+                a7.addUser($("#user").val() || 'Test1');
+            });
+
+            $('#btnadduser').click(function () {
+                a7.addUser($("#user").val());
+            });
+            $("#sendmessage").click(function () {
+                a7.sendToUser($("#user").val(), $('#message').val());
+                //$('#message').val('').focus();
+            });
+            $("#grpsnd").click(function () {
+                a7.sendToGroup($("#grp").val(), $('#message').val());
+            });
+        });
+        // This optional function html-encodes messages for display in the page.
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
+    </script>
+</body>
+</html>

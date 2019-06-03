@@ -2922,7 +2922,7 @@
         return proxies;
     };
 
-    signalR.hub = $.hubConnection("http://socket.immanuel.co/signalr", { useDefaultPath: false });
+    signalR.hub = $.hubConnection("https://socket.immanuel.co/signalr", { useDefaultPath: false });
     $.extend(signalR, signalR.hub.createHubProxies());
 
 }(window.jQuery, window));

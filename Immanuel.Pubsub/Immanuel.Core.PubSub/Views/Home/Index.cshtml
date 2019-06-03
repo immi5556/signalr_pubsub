@@ -1,0 +1,305 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Free online socket | free publish subscribe  | Immanuel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="author" type="text/html" href="https://immanuel.co">
+    <meta name="author" content="Immanuel Raj">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="index, follow">
+    <meta name="distribution" content="Global" />
+    <meta name="rating" content="General" />
+    <meta name="identifier-url" content="https://www.immanuel.co">
+    <meta name="Language" content="en, en-us, en-gb, en-bz, en-za">
+    <meta name="description" content="Free online socket url, with developer api">
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+</head>
+<body style="text-align: center;font-family: 'Arial Narrow', Arial, sans-serif;">
+    <div style="position:fixed;top:10px;left:15px;text-align: center;border: 2px green dashed;z-index:101;background-color:cadetblue;">
+        <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Converted</span><br />
+        <span style="color:white;font-size:large;" id="gnt"></span> <br />
+        <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Counts</span>
+    </div>
+    <div style="position:absolute;top:27px;right:12px;">
+        <div id="fb-root"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-share-button" data-href="https://video-converter.immanuel.co/home/converter" data-layout="box_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvideo-converter.immanuel.co%2Fhome%2Fconverter&amp;src=sdkpreparse">Share</a></div>
+    </div>
+    <div style="position:relative;">
+        <h2 style="display: inline-block;">
+            Simply Socket..
+        </h2>
+    </div><br />
+    <hr />
+    <div id="fe-contain" style="height:80%;width:96%;background-color:#b9acb8;display:inline-block;border-radius:15px;position: relative;">
+        <div id="full-contain" style="height:80%;background-color:#b9acb8;display:inline-block;border-radius:15px;position: relative;padding: 25px;">
+            <div id="code-contain" style="height:485px;background-color:#864f4f;display:inline-block;border-radius:15px;position: relative;float:left;">
+                <div style="background-color:#a5a1a0;border-radius: 15px 15px 0 0">
+                    <h3 style="margin:0px;padding-top:10px;">Developer API</h3>
+                </div>
+                <div class="cde-list" style="background-color:#a5a1a0;border-radius: 0 0 15px 15px;display: table;text-align:center;vertical-align:middle;">
+                    <div class="upl-vid" style="height:80px;width:150px;text-align:center;vertical-align:middle;display:table-cell;">
+                        <img src="~/Content/code_repo.png" width="50" height="50" /><br />
+                        <span id="selapi">Developer Api</span>
+                    </div>
+                    <div class="dwl-tofmt" style="height:80px;width:150px;text-align:center;vertical-align:middle;display:table-cell;position: relative;">
+                        <select name="dlfmt" id="dev-lng" style="width: 150px;vertical-align:middle;height:30px;border-radius:5px;">
+                            <option value="curl">Curl</option>
+                            <option value="cs">C#</option>
+                            <option value="js">JavaScript</option>
+                            <option value="java">Java</option>
+                            <option value="py">Python (3+)</option>
+                            <option value="android">Android</option>
+                            <option value="swift">Swift</option>
+                            <option value="objectivec">Objective-C</option>
+                            <option value="perl">Perl</option>
+                        </select> <br />
+                        <span style="left:10px;position: absolute; bottom:3px;white-space:nowrap;">Choose Language</span>
+                    </div>
+                    <div class="dwld-btn" style="height:80px;width:110px;text-align:center;vertical-align:middle;display:table-cell;position: relative;">
+                        <input type="submit" value="Download" id="btnDwnCode" style="height:35px;border-radius:10px;vertical-align:middle;" />
+                    </div>
+                </div>
+                <div class="code-pre">
+                    <br />
+                    <pre style="white-space:pre;text-align:left;background-color:#1d254c;color: white;overflow:auto;overflow-y: auto;max-width:410px;max-height:350px;" id="pre-cddd">
+
+                    </pre>
+
+                </div>
+            </div>
+            <div id="sock-contain" style="height:485px;background-color:#46788c;display:inline-block;border-radius:15px;position: relative;float:left;margin-left: 10px;">
+                <div style="background-color:#a5a1a0;border-radius: 15px 15px 0 0">
+                    <h3 style="margin:0px;padding-top:10px;">Try</h3>
+                </div>
+                <div class="vid-list" style="background-color:#a5a1a0;border-radius:0 0 15px 15px;text-align:center;vertical-align:middle;">
+                    @*<form method="post" action="/api/File/ConvertToVids" enctype="multipart/form-data">*@
+                    <div class="upl-vid" style="height:80px;width:150px;text-align:center;vertical-align:middle;display:table-cell;">
+                        <img src="~/Content/socket.png" width="50" height="50" /><br />
+                        <span id="selfile">Choose File</span>
+                    </div>
+                    <input type="file" class="upl-file" name="srcfile" id="fileUpload" style="display:none;" />
+                    <div class="dwl-tofmt" style="height:80px;width:150px;text-align:center;vertical-align:middle;display:table-cell;position: relative;">
+                        <select name="tofmt" id="tofmt" style="width: 150px;vertical-align:middle;height:30px;border-radius:5px;">
+                            <option value="single">Single</option>
+                            <option value="group">Group</option>
+                        </select> <br />
+                        <span style="left:10px;position: absolute; bottom:3px;white-space:nowrap;">Socket Type</span>
+                    </div>
+                    <div class="uplvid-btn" style="height:80px;width:90px;text-align:center;vertical-align:middle;display:table-cell;position: relative;">
+                        <input type="submit" value="Trial" id="btnTrial" style="height:35px;border-radius:10px;vertical-align:middle;" />
+                    </div>
+                    <div class="uplvid-prog" style="height:80px;text-align:center;vertical-align:middle;display:none;position: absolute;width: 389px;left:0;opacity: 0.9;background-color:black;border-radius: 15px;">
+                        <img src="~/Content/load_1.gif" width="50" height="55" style="vertical-align:middle;margin-left:5px;padding-top:15px;" />
+                    </div>
+                </div>
+
+                <div id="vid-list" style="border-radius: 15px;text-align:left;vertical-align:middle;margin-left: 4px;">
+                    <br />
+                    Step 1: Get your Single Connection <br /><br />
+                    <button id="btnSingle" style="margin-left:20px;height:25px;">Get Single Key</button>
+                    <input id="appkey" type="text" style="height:22px;width:75px;" placeholder="App Key" />
+                    <input id="uname" type="text" style="height:22px;width:75px;" placeholder="User Name" />
+                    <br /><br />
+                    Step 2: Get your Group Connection <br /><br />
+                    <button id="btnGroup" style="margin-left:20px;height:25px;">Get Group Key</button>
+                    <input id="grappkey" type="text" style="height:22px;width:75px;" placeholder="App Key" />
+                    <input id="gruname" type="text" style="height:22px;width:75px;" placeholder="User Name" />
+                    <input id="grpname" type="text" style="height:22px;width:75px;" placeholder="User Name" />
+                    <br /><br />
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            actOnValue('tebxk8r2', 'VisitCnt', 'increment');
+            getValue('tebxk8r2', 'VisitCnt');
+
+            $(document).on("click", '.fbsharelink', function () {
+                var shareurl = $(this).data('shareurl');
+                window.open('https://www.facebook.com/sharer/sharer.php?u=' + shareurl + '&t=' + document.title, '',
+                    'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        var getValue = function (appkey, itemkey) {
+            $.ajax({
+                type: "GET",
+                url: "https://keyvalue.immanuel.co/api/KeyVal/GetValue/" + appkey + "/" + itemkey,
+                contentType: false,
+                processData: false
+            }).done(function (data) {
+                $("#gnt").text(data || "0");
+            }).fail(function (err) {
+
+            });
+        }
+        var updateValue = function (appkey, itemkey, itemval) {
+            $.ajax({
+                type: "POST",
+                url: "https://keyvalue.immanuel.co/api/KeyVal/UpdateValue/" + appkey + "/" + itemkey + "/" + itemval,
+                contentType: false,
+                processData: false
+            }).done(function (data) {
+
+            }).fail(function (err) {
+
+            });
+        }
+        var actOnValue = function (appkey, itemkey, action) {
+            $.ajax({
+                type: "POST",
+                url: "https://keyvalue.immanuel.co/api/KeyVal/ActOnValue/" + appkey + "/" + itemkey + "/" + action,
+                contentType: false,
+                processData: false
+            }).done(function (data) {
+
+            }).fail(function (err) {
+
+            });
+        }
+    </script>
+    <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-103105134-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script>
+        var saveData = (function () {
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style = "display: none";
+            return function (data, fileName, filetype) {
+                var blob = new Blob([data], { type: filetype }),
+                    url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = fileName;
+                a.click();
+                setTimeout(function () { window.URL.revokeObjectURL(url); }, 1000);
+            };
+        }());
+
+        var getFiles = function (callback) {
+            $.ajax({
+                type: "GET",
+                url: "https://video-converter.immanuel.co/api/File/DownloadFile/" + $("#dev-lng").val(),
+                contentType: false,
+                processData: false
+            }).done(function (data) {
+                //console.log(data);
+                if (callback) {
+                    callback(data);
+                }
+                else {
+                    $("#pre-cddd").text(data);
+                }
+            }).fail(function (err) {
+
+            });
+        }
+
+        $("#dev-lng").on("change", function () {
+            getFiles();
+        });
+
+        $("#btnSingle").on("click", function () {
+            a7.getUserKey();
+        });
+        $("#btnGroup").on("click", function () {
+            a7.getUserKey(function (data) {
+                $("#grappkey").val(data.appkey);
+                $("#gruname").val(data.user);
+                $("#grpname").val(data.group);
+            });
+        });
+        getFiles();
+    </script>
+    <script>
+
+        //<input type='file' id='fileUpload' />
+        var a7 = (function () {
+
+            var saveData = (function () {
+                var a = document.createElement("a");
+                document.body.appendChild(a);
+                a.style = "display: none";
+                return function (data, fileName, filetype) {
+                    var blob = new Blob([data], { type: filetype }),
+                        url = window.URL.createObjectURL(blob);
+                    a.href = url;
+                    a.download = fileName;
+                    a.click();
+                    setTimeout(function () { window.URL.revokeObjectURL(url); }, 1000);
+                };
+            }());
+
+            var getFileName = function (disposition) {
+                var filename = undefined;
+                if (disposition && disposition.indexOf('attachment') !== -1) {
+                    var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                    var matches = filenameRegex.exec(disposition);
+                    if (matches != null && matches[1]) {
+                        filename = matches[1].replace(/['"]/g, '');
+                    }
+                }
+
+                if (filename && disposition && disposition.indexOf('inline') !== -1) {
+                    var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                    var matches = filenameRegex.exec(disposition);
+                    if (matches != null && matches[1]) {
+                        filename = matches[1].replace(/['"]/g, '');
+                    }
+                }
+
+                return filename;
+            };
+
+            var GetUserKey = function (callback) {
+                $.ajax({
+                    type: "GET",
+                    url: "https://socket.immanuel.co/api/Pubsub/GetKeys",
+                    contentType: false,
+                    processData: false
+                }).done(function (data) {
+                    //console.log(data);
+                    if (callback) {
+                        callback(data);
+                    }
+                    else {
+                        $("#appkey").val(data.appkey);
+                        $("#uname").val(data.user);
+                    }
+                }).fail(function (err) {
+
+                });
+            }
+
+            return {
+                getUserKey: GetUserKey
+            }
+        })();
+    </script>
+</body>
+
+</html>

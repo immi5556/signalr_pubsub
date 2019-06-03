@@ -8,13 +8,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="author" type="text/html" href="http://immanuel.co">
+    <link rel="author" type="text/html" href="https://immanuel.co">
     <meta name="author" content="Immanuel Raj">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="robots" content="index, follow">
     <meta name="distribution" content="Global" />
     <meta name="rating" content="General" />
-    <meta name="identifier-url" content="http://www.immanuel.co">
+    <meta name="identifier-url" content="https://www.immanuel.co">
     <meta name="Language" content="en, en-us, en-gb, en-bz, en-za">
     <meta name="description" content="Free online socket url, with developer api">
     <script src="~/Scripts/jquery-1.10.2.js"></script>
@@ -35,7 +35,7 @@
                 js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));</script>
-        <div class="fb-share-button" data-href="http://video-converter.immanuel.co/home/converter" data-layout="box_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvideo-converter.immanuel.co%2Fhome%2Fconverter&amp;src=sdkpreparse">Share</a></div>
+        <div class="fb-share-button" data-href="https://video-converter.immanuel.co/home/converter" data-layout="box_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvideo-converter.immanuel.co%2Fhome%2Fconverter&amp;src=sdkpreparse">Share</a></div>
     </div>
     <div style="position:relative;">
         <h2 style="display: inline-block;">
@@ -140,7 +140,7 @@
         var getValue = function (appkey, itemkey) {
             $.ajax({
                 type: "GET",
-                url: "http://keyvalue.immanuel.co/api/KeyVal/GetValue/" + appkey + "/" + itemkey,
+                url: "https://keyvalue.immanuel.co/api/KeyVal/GetValue/" + appkey + "/" + itemkey,
                 contentType: false,
                 processData: false
             }).done(function (data) {
@@ -152,7 +152,7 @@
         var updateValue = function (appkey, itemkey, itemval) {
             $.ajax({
                 type: "POST",
-                url: "http://keyvalue.immanuel.co/api/KeyVal/UpdateValue/" + appkey + "/" + itemkey + "/" + itemval,
+                url: "https://keyvalue.immanuel.co/api/KeyVal/UpdateValue/" + appkey + "/" + itemkey + "/" + itemval,
                 contentType: false,
                 processData: false
             }).done(function (data) {
@@ -164,7 +164,7 @@
         var actOnValue = function (appkey, itemkey, action) {
             $.ajax({
                 type: "POST",
-                url: "http://keyvalue.immanuel.co/api/KeyVal/ActOnValue/" + appkey + "/" + itemkey + "/" + action,
+                url: "https://keyvalue.immanuel.co/api/KeyVal/ActOnValue/" + appkey + "/" + itemkey + "/" + action,
                 contentType: false,
                 processData: false
             }).done(function (data) {
@@ -203,7 +203,7 @@
         var getFiles = function (callback) {
             $.ajax({
                 type: "GET",
-                url: "http://video-converter.immanuel.co/api/File/DownloadFile/" + $("#dev-lng").val(),
+                url: "https://video-converter.immanuel.co/api/File/DownloadFile/" + $("#dev-lng").val(),
                 contentType: false,
                 processData: false
             }).done(function (data) {
@@ -278,7 +278,7 @@
             var GetUserKey = function (callback) {
                 $.ajax({
                     type: "GET",
-                    url: "http://socket.immanuel.co/api/Pubsub/GetKeys",
+                    url: "https://socket.immanuel.co/api/Pubsub/GetKeys",
                     contentType: false,
                     processData: false
                 }).done(function (data) {

@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HtmlClient", "HtmlClient", 
 		HtmlClient\jquery.signalR-2.1.2.js = HtmlClient\jquery.signalR-2.1.2.js
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Immanuel.Core.PubSub", "Immanuel.Core.PubSub\Immanuel.Core.PubSub.csproj", "{7AF8E1C6-A430-49BD-A22E-724C296C12DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,8 +31,15 @@ Global
 		{A2776D17-7601-448C-B920-7C5CBE6FCA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2776D17-7601-448C-B920-7C5CBE6FCA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2776D17-7601-448C-B920-7C5CBE6FCA17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AF8E1C6-A430-49BD-A22E-724C296C12DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AF8E1C6-A430-49BD-A22E-724C296C12DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AF8E1C6-A430-49BD-A22E-724C296C12DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AF8E1C6-A430-49BD-A22E-724C296C12DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {505D1DA9-6275-451D-AB8E-E05DA98734D4}
 	EndGlobalSection
 EndGlobal
